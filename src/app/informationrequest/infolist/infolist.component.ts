@@ -10,30 +10,32 @@ import { InforequestStore } from '../state/inforequest.store';
   selector: 'app-infolist',
   templateUrl: './infolist.component.html',
   styleUrls: ['./infolist.component.css'],
-  
 })
 export class InfolistComponent implements OnInit {
-  myForm:FormGroup;  
+  myForm: FormGroup;
   isLoading$: Observable<boolean>;
   infolist$: Observable<Inforequest[]>;
   selectedinformationReuest: number;
-  isedit:boolean;
-  constructor(private query: InforequestQuery,
-     private route: ActivatedRoute , private router: Router,
-    private service:InforequestService , private store:InforequestStore
-    ) { }
+  isedit: boolean;
+  constructor(
+    private query: InforequestQuery,
+    private route: ActivatedRoute,
+    private router: Router,
+    private service: InforequestService,
+    
+  ) {}
 
   ngOnInit(): void {
     this.service.get().subscribe();
     this.infolist$ = this.query.selectAll();
-    
-    this.myForm = new FormGroup({          
-      'title':new FormControl(null), //note, can have up to 3 Constructor Params: default value, validators, AsyncValidators
-      'type':new FormControl(null),
-      'id':new FormControl(null)
+    this.isLoading$ = this.query.selectLoading();
+  
 
-
- })
+    this.myForm = new FormGroup({
+      title: new FormControl(null), //note, can have up to 3 Constructor Params: default value, validators, AsyncValidators
+      type: new FormControl(null),
+      id: new FormControl(null),
+    });
   }
 
   selectedRow(id: number) {
@@ -43,23 +45,20 @@ export class InfolistComponent implements OnInit {
   }
 
   delete(id: number) {
-   this.service.remove(id);
+    this.service.remove(id);
   }
-  selectedTab(routeName:string,id: number) {
-   
+  selectedTab(routeName: string, id: number) {
     console.log(id);
-    this.router.navigate([routeName],{relativeTo: this.route});
+    this.router.navigate([routeName], { relativeTo: this.route });
   }
-  add()
-  {
+  add() {
     console.log(this.myForm);
-    
-    this.service.add( this.myForm.value );  
+
+    this.service.add(this.myForm.value);
   }
-  edit()
-  {
+  edit() {
     console.log(this.myForm);
-    
-    //this.service.update( this.myForm.value );  
+
+    //this.service.update( this.myForm.value );
   }
 }

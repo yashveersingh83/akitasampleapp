@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "server": "ts-node ./server/server.ts"
+     "server1": "ts-node ./server/server.ts",
+    "server": "json-server --watch ./server/db.json"
+    
   },
   "private": true,
   "dependencies": {

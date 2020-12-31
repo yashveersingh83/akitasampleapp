@@ -29,6 +29,46 @@
       "title": "yashveer",
       "type": "asasas",
       "id": "8"
+    },
+    {
+      "title": "yash",
+      "type": "asasas",
+      "id": "71"
+    }
+  ],
+  "milestones": [
+    {
+      "id": 3,
+      "desc": "March milestone",
+      "date": "01-03-2020"
+    },
+    {
+      "date": "2020-12-30",
+      "desc": "Test milestone",
+      "id": "7"
+    },
+    {
+      "date": "2020-12-28",
+      "desc": "Test milestone",
+      "id": "6"
+    }
+  ],
+  "coordinators": [
+    {
+      "id": 1,
+      "Name": "Yashveer"
+    },
+    {
+      "id": 2,
+      "Name": "Ruchi"
+    },
+    {
+      "id": 3,
+      "Name": "Akshveer"
+    },
+    {
+      "id": 4,
+      "Name": "Shauryaveer"
     }
   ]
 }
