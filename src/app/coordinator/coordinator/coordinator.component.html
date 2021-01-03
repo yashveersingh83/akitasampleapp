@@ -1,1 +1,86 @@
-<p>coordinator works!</p>
+<div class="spinner-border m-5" role="status" *ngIf="isLoading$ | async">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="card">
+  
+      <div class="card-body">
+          <!-- Button trigger modal -->
+          <button  type="button" style="float: right;padding-bottom: 10px;;" class="btn btn-primary" data-toggle="modal"
+              data-target="#addcoordinatorModal">
+              Add coordinator
+          </button>
+          <table class="table  table-striped" style="padding: 20px;">
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                     
+                      <th></th>
+                  </tr>
+  
+              </thead>
+              <tbody>
+                  <tr *ngFor="let coordinator of  coordinatorList$ | async">
+                      <td>{{ coordinator.id}}</td>
+                      <td> {{ coordinator.Name}}</td>
+                     
+                      <td>
+                          <div class="btn-group" role="group" style="float: right;" aria-label="Basic example">
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                  Edit</button>
+                              <button type="button" class="btn btn-danger"
+                                  (click)="delete (coordinator.id)">Delete</button>
+  
+                          </div>
+                      </td>
+                  </tr>
+  
+              </tbody>
+  
+          </table>
+  
+  
+      </div>
+  
+      <!-- Modal -->
+  <div class="modal fade" ID="addcoordinatorModal"  tabindex="-1" role="dialog" aria-labelledby="addcoordinatorModalTitle" aria-hIDden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" ID="addcoordinatorModalTitle">Modal title</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hIDden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+           <form [formGroup]="mycoordinatorForm" >
+             <div class="form-group">
+               <label for="ID">ID</label>
+               <input type="text" class="form-control" ID="mID"  formControlName="id" name="id" placeholder="Enter ID">
+              
+             </div>
+   
+             <div class="form-group">
+               <label for="title">Description</label>
+               <input type="text" class="form-control" ID="mdesc"  formControlName="Name" name="Name" placeholder="Enter description">
+              
+             </div>
+             
+             
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="button"  (click)="addcoordinator($event)" class="btn btn-primary">Save changes</button>
+             </div>
+           </form>
+           <span>   </span>
+         </div>
+        
+       </div>
+     </div> 
+   
+    
+   
+   </div>
+  
+  
+  </div>

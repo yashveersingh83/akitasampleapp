@@ -1,67 +1,25 @@
 {
   "inforequests": [
     {
-      "id": 2,
-      "title": "information request 2",
-      "type": "database"
-    },
-    {
-      "id": 3,
-      "title": "information request 3",
-      "type": "text"
-    },
-    {
-      "id": 4,
-      "title": "information request 4",
-      "type": "worsheet"
-    },
-    {
-      "id": 5,
-      "title": "information request 5",
-      "type": "document"
-    },
-    {
-      "title": "yash",
-      "type": "asasas",
-      "id": "7"
-    },
-    {
-      "title": "yashveer",
-      "type": "asasas",
-      "id": "8"
-    },
-    {
-      "title": "yash",
-      "type": "asasas",
-      "id": "71"
+      "Title": "info11",
+      "Type": "text",
+      "ID": "11",
+      "id": "8xMbQI_"
     }
   ],
   "milestones": [
     {
-      "id": 3,
-      "desc": "March milestone",
-      "date": "01-03-2020"
+      "Date": "2021-01-15",
+      "Desc": "test",
+      "id": "5"
     },
     {
-      "date": "2020-12-30",
-      "desc": "Test milestone",
-      "id": "7"
-    },
-    {
-      "date": "2020-12-28",
-      "desc": "Test milestone",
-      "id": "6"
+      "Date": "2021-01-03",
+      "Desc": "test",
+      "id": "11"
     }
   ],
   "coordinators": [
-    {
-      "id": 1,
-      "Name": "Yashveer"
-    },
-    {
-      "id": 2,
-      "Name": "Ruchi"
-    },
     {
       "id": 3,
       "Name": "Akshveer"

@@ -19,9 +19,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let inforequest of infolist$ | async" (click)="selectedRow(inforequest.id)">
-        <td>{{inforequest.id}}</td>
-        <td>   {{inforequest.title}}</td>
-        <td>{{inforequest.type}}</td>
+        <td>{{inforequest.ID}}</td>
+        <td>   {{inforequest.Title}}</td>
+        <td>{{inforequest.Type}}</td>
         <td>  <div class="btn-group" role="group"  style="float: right;"  aria-label="Basic example">
           <button type="button"  class="btn btn-primary" data-toggle="modal"  data-target="#myModal"> Edit</button>
           <button type="button" class="btn btn-danger" (click)="delete(inforequest.id)">Delete</button>
@@ -69,18 +69,18 @@
         <form [formGroup]="myForm"  (ngSubmit)="add()">
           <div class="form-group">
             <label for="id">Id</label>
-            <input type="text" class="form-control" id="id"  formControlName="id" name="id" placeholder="Enter title">
+            <input type="text" class="form-control" id="id"  formControlName="ID" name="id" placeholder="Enter title">
            
           </div>
 
           <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control" id="title"  formControlName="title" name="title" placeholder="Enter title">
+            <input type="text" class="form-control" id="title"  formControlName="Title" name="title" placeholder="Enter title">
            
           </div>
           <div class="form-group">
             <label for="type">Title</label>
-            <input type="test" class="form-control" id="type"  formControlName="type" name="type"  placeholder="Enter type">
+            <input type="test" class="form-control" id="type"  formControlName="Type" name="type"  placeholder="Enter type">
           </div>
           
           <div class="modal-footer">

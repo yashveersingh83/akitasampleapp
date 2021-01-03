@@ -1,7 +1,7 @@
 export interface Milestone {
   id: number ;
-  desc:string;
-  date:Date;
+  Desc:string;
+  Date:Date;
 }
 
 export function createMilestone(params: Partial<Milestone>) {

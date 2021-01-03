@@ -1,11 +1,12 @@
 export interface Inforequest {
   id: number ;
-  title:string;
-  type:string
+  Title:string;
+  Type:string
 }
 
 export function createInforequest(params: Partial<Inforequest>) {
-  return {
+  return { 
+    
 
   } as Inforequest;
 }

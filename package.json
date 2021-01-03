@@ -8,9 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-     "server1": "ts-node ./server/server.ts",
+    "server1": "ts-node ./server/server.ts",
     "server": "json-server --watch ./server/db.json"
-    
   },
   "private": true,
   "dependencies": {
@@ -24,8 +23,11 @@
     "@angular/platform-browser-dynamic": "~9.1.12",
     "@angular/router": "~9.1.12",
     "@datorama/akita": "^5.3.0",
+    "@datorama/akita-ng-entity-service": "^5.1.1",
     "@types/jquery": "^3.5.5",
     "bootstrap": "^4.5.3",
+    "devextreme": "20.2.4",
+    "devextreme-angular": "20.2.4",
     "helpful-decorators": "^2.1.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",

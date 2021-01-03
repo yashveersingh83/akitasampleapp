@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Milestone } from '../state/milestone.model';
 import { MilestoneQuery } from '../state/milestone.query';
 import { MilestoneService } from '../state/milestone.service';
-import { MilestoneStore } from '../state/milestone.store';
+import { WindowRef } from '../windowref';
+
 
 @Component({
   selector: 'app-milestone',
@@ -18,27 +19,33 @@ export class MilestoneComponent implements OnInit {
   isLoading$: Observable<boolean>;
   milestonelist$: Observable<Milestone[]>;
   selectedinformationReuest: number;
-
+  @ViewChild('myModal', { static: false }) myModal:any;
+  
   constructor(private query: MilestoneQuery,
      private route: ActivatedRoute , private router: Router,
-    private service:MilestoneService 
-    ) { }
+    private service:MilestoneService ,private window: WindowRef
+    ) { 
+
+
+    
+    }
 
     ngOnInit(): void {
       this.service.get().subscribe();
+     
       this.milestonelist$ = this.query.selectAll();
       this.isLoading$ = this.query.selectLoading();
   
       this.myMileStoneForm = new FormGroup({
-        date: new FormControl(null), //note, can have up to 3 Constructor Params: default value, validators, AsyncValidators
-        desc: new FormControl(null),
+        Date: new FormControl(null), //note, can have up to 3 Constructor Params: default value, validators, AsyncValidators
+        Desc: new FormControl(null),
         id: new FormControl(null),
       });
     }
   
 
   delete(id: number) {
-    this.service.remove(id);
+    this.service.delete(id).subscribe();
    }
    selectedTab(routeName:string,id: number) {
     
@@ -49,7 +56,8 @@ export class MilestoneComponent implements OnInit {
    {
      console.log(this.myMileStoneForm);
      
-     this.service.add( this.myMileStoneForm.value );  
+     this.service.add( this.myMileStoneForm.value ).subscribe();  
+     ///this.router.navigate(['inf'], { relativeTo: this.route });
    }
    edit()
    {

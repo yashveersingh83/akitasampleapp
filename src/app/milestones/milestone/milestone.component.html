@@ -3,12 +3,11 @@
 <div class="spinner-border m-5" role="status" *ngIf="isLoading$ | async">
   <span class="sr-only">Loading...</span>
 </div>
-
 <div class="card">
 
     <div class="card-body">
         <!-- Button trigger modal -->
-        <button type="button" style="float: right;padding-bottom: 10px;;" class="btn btn-primary" data-toggle="modal"
+        <button  type="button" style="float: right;padding-bottom: 10px;;" class="btn btn-primary" data-toggle="modal"
             data-target="#addmilestoneModal">
             Add milestone
         </button>
@@ -25,8 +24,8 @@
             <tbody>
                 <tr *ngFor="let milestone of  milestonelist$ | async">
                     <td>{{ milestone.id}}</td>
-                    <td> {{ milestone.desc}}</td>
-                    <td>{{ milestone.date}}</td>
+                    <td> {{ milestone.Desc}}</td>
+                    <td>{{ milestone.Date}}</td>
                     <td>
                         <div class="btn-group" role="group" style="float: right;" aria-label="Basic example">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
@@ -46,11 +45,11 @@
     </div>
 
     <!-- Modal -->
-<div class="modal fade" id="addmilestoneModal" tabindex="-1" role="dialog" aria-labelledby="addmilestoneModalTitle" aria-hidden="true">
+<div class="modal fade" ID="addmilestoneModal"  tabindex="-1" role="dialog" aria-labelledby="addmilestoneModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
      <div class="modal-content">
        <div class="modal-header">
-         <h5 class="modal-title" id="addmilestoneModalTitle">Modal title</h5>
+         <h5 class="modal-title" ID="addmilestoneModalTitle">Modal title</h5>
          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
            <span aria-hidden="true">&times;</span>
          </button>
@@ -58,19 +57,19 @@
        <div class="modal-body">
          <form [formGroup]="myMileStoneForm" >
            <div class="form-group">
-             <label for="id">Id</label>
-             <input type="text" class="form-control" id="mid"  formControlName="id" name="id" placeholder="Enter id">
+             <label for="ID">Id</label>
+             <input type="text" class="form-control" ID="mid"  formControlName="id" name="id" placeholder="Enter ID">
             
            </div>
  
            <div class="form-group">
              <label for="title">Description</label>
-             <input type="text" class="form-control" id="mdesc"  formControlName="desc" name="desc" placeholder="Enter description">
+             <input type="text" class="form-control" ID="mdesc"  formControlName="Desc" name="Desc" placeholder="Enter description">
             
            </div>
            <div class="form-group">
              <label for="type">Date</label>
-             <input type="date" class="form-control" id="mdate"  formControlName="date" name="date"  placeholder="Enter date">
+             <input type="Date" class="form-control" ID="mdate"  formControlName="Date" name="Date"  placeholder="Enter Date">
            </div>
            
            <div class="modal-footer">
@@ -89,4 +88,41 @@
  </div>
 
 
+</div>
+
+
+
+
+<div ID="data-grid-demo">
+  <dx-data-grid 
+      ID="gridContainer"
+      [dataSource]="milestonelist$ | async    "
+      keyExpr="ID"
+      [showBorders]="true">
+      
+      <dxo-paging [enabled]="false"></dxo-paging>
+      <dxo-editing 
+          mode="popup"
+          [allowUpdating]="true">
+          <dxo-popup
+              title="milestone Info"
+              [showTitle]="true"
+              [width]="700"
+              [height]="525"
+              >
+          </dxo-popup>
+          <dxo-form>
+              <dxi-item itemType="group" [colCount]="2" [colSpan]="2">
+                
+                  <dxi-item dataField="Desc"></dxi-item>
+                  <dxi-item dataField="Date"></dxi-item>   
+              </dxi-item>                           
+          </dxo-form>
+      </dxo-editing>
+      
+      <dxi-column dataField="id" caption="ID" [width]="70"></dxi-column>
+      <dxi-column dataField="Desc" caption="Description"></dxi-column>
+      <dxi-column dataField="Date" caption="Date" dataType="Date"> </dxi-column>
+      
+  </dx-data-grid>
 </div>
