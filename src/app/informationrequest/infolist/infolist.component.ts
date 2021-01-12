@@ -5,7 +5,6 @@ import { Inforequest } from '../state/inforequest.model';
 import { InforequestQuery } from '../state/inforequest.query';
 import { InforequestService } from '../state/inforequest.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { InforequestStore } from '../state/inforequest.store';
 @Component({
   selector: 'app-infolist',
   templateUrl: './infolist.component.html',
@@ -16,12 +15,14 @@ export class InfolistComponent implements OnInit {
   isLoading$: Observable<boolean>;
   infolist$: Observable<Inforequest[]>;
   selectedinformationReuest: number;
+
   isedit: boolean;
   constructor(
     private query: InforequestQuery,
     private route: ActivatedRoute,
     private router: Router,
     private service: InforequestService,
+    
     
   ) {}
 
