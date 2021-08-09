@@ -28,7 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
   // npm install -g json-server json-server --watch db.json
-
+  npm run server
 //https://datorama.github.io/akita/docs/angular/schematics/
 // ng add @datorama/akita  than ng g @datorama/akita:feature inforequest
 //ng g @datorama/akita:as todos
